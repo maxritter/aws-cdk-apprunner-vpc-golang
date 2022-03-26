@@ -1,5 +1,5 @@
 {
-  "name": "apprunner-vpc-connector-demo",
+  "name": "aws-cdk-apprunner-vpc-golang",
   "scripts": {
     "build": "npx projen build",
     "bundle": "npx projen bundle",

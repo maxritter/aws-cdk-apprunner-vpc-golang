@@ -1,23 +1,17 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+#!/usr/bin/env node
+import "source-map-support/register";
+import * as cdk from "aws-cdk-lib";
+import { AppRunnerStack } from "./app-runner-stack";
 
-export class MyStack extends Stack {
-  constructor(scope: Construct, id: string, props: StackProps = {}) {
-    super(scope, id, props);
-
-    // define resources here...
-  }
-}
-
-// for development, use account/region from cdk cli
-const devEnv = {
+const app = new cdk.App();
+const cdkEnv = {
   account: process.env.CDK_DEFAULT_ACCOUNT,
-  region: process.env.CDK_DEFAULT_REGION,
+  region: "eu-west-1",
 };
 
-const app = new App();
+new AppRunnerStack(app, "AppRunnerStack", {
+  env: cdkEnv,
+  stackName: `app-runner-demo-stack`,
+});
 
-new MyStack(app, 'apprunner-vpc-connector-demo-dev', { env: devEnv });
-// new MyStack(app, 'apprunner-vpc-connector-demo-prod', { env: prodEnv });
-
-app.synth();
+app.synth()

@@ -17,7 +17,7 @@ import { SubnetType } from "aws-cdk-lib/aws-ec2";
 import { RetentionDays } from "aws-cdk-lib/aws-logs";
 
 export class AppRunnerStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
+  constructor(scope: Construct, id: string, props: StackProps) {
     super(scope, id, props);
 
     const vpc = new ec2.Vpc(this, "AppRunnerVPC");
@@ -110,7 +110,7 @@ export class AppRunnerStack extends Stack {
       this,
       "ECRImage",
       {
-        directory: "../app",
+        directory: "src/app",
       }
     );
 
@@ -128,11 +128,11 @@ export class AppRunnerStack extends Stack {
               runtimeEnvironmentVariables: [
                 {
                   name: "AWS_SECRET_NAME",
-                  value: dbSecrets.secretArn,
+                  value: dbSecrets.secretName
                 },
                 {
                   name: "AWS_REGION",
-                  value: process.env.CDK_DEFAULT_REGION,
+                  value: props.env?.region,
                 },
                 {
                   name: "DATABASE_NAME",
