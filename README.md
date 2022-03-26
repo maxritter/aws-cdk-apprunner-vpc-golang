@@ -12,8 +12,9 @@ The next posts of this series will be about:
 - [AWS App Runner](https://aws.amazon.com/apprunner/?nc1=h_ls) (Executing our container stored in ECR with ECS on Fargate)
 - [AWS Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless/?nc1=h_ls) (PostgreSQL Database)
 - [AWS ECR](https://aws.amazon.com/ecr/?nc1=h_ls) (Container storage)
-- [Golang](https://go.dev/) (Perfect for backend services)
+- [Golang](https://go.dev/) (Perfect for backend services and cloud native apps)
 - [Gin Web Framework](https://github.com/gin-gonic/gin) (Awesome web framework for Go with focus on performance and productivity)
+- [GORM ORM Library](https://gorm.io/index.html) (ORM wrapper that works with many databases, we use it for PostgreSQL connection)
 - [Projen](https://projen.io/) (Setup our CDK project)
 
 Checkout [my blog article](https://maxritter.bloggi.co/serverless-on-aws-with-cdk-1-app-runner-with-vpc-integration) for more details about the application, infrastructure and how to deploy it.
